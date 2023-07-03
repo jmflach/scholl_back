@@ -34,7 +34,10 @@ $routes->get('/', 'Home::index');
 // Students REST
 
 $routes->get('students', 'Students::list');
+$routes->get('student/(:num)', 'Students::getStudent/$1');
 $routes->post('students/add', 'Students::create');
+$routes->post('student/update/(:num)', 'Students::update/$1');
+$routes->delete('student/delete/(:num)', 'Students::destroy/$1');
 
 /*
  * --------------------------------------------------------------------
