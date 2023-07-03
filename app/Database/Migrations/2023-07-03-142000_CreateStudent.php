@@ -42,7 +42,7 @@ class CreateStudents extends Migration
                 'null' => false,
             ],
             'nascimento' => [
-                'type' => 'datetime',
+                'type' => 'date',
                 'null' => false,
             ],
             'foto' => [
