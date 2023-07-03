@@ -2,10 +2,11 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\RESTful\ResourceController;
+
 use Exception;
 
-class Students extends ResourceController {
+
+class Students extends BaseController {
     private $studentsModel;
     private $token = '123456789abcdefghi';
 
@@ -22,9 +23,12 @@ class Students extends ResourceController {
     // Service to return all students (GET)
     public function list()
     {
+        log_message("debug", "Listing students");
+
         $data = $this->studentsModel->findAll();    // SELECT * FROM students
 
-        return $this->response->setJSON($data);
+        // return $this->response->setJSON($data);
+        return $this->getResponse($data);
     }
 
     // Service to return one student by id (GET)
@@ -58,16 +62,26 @@ class Students extends ResourceController {
     // Service to add new student (POST)
     public function create()
     {
+        log_message("debug", "Creating new student");
         $response = [];
 
+        // $input = $this->request->getPost();
+        // // log_message("debug", $input);
+        // $input = json_decode($this->request->getBody(), true);
+        // // log_message("debug", $input);
 
-        $newStudent['nome'] = $this->request->getPost('nome');
-        $newStudent['sobrenome'] = $this->request->getPost('sobrenome');
-        $newStudent['email'] = $this->request->getPost('email');
-        $newStudent['telefone'] = $this->request->getPost('telefone');
-        $newStudent['endereço'] = $this->request->getPost('endereço');
-        $newStudent['nascimento'] = $this->request->getPost('nascimento');
-        $newStudent['foto'] = $this->request->getPost('foto');
+        $input = $this->getRequestInput($this->request);
+
+       
+        $newStudent['nome'] = $input['nome'];
+        $newStudent['sobrenome'] = $input['sobrenome'];
+        $newStudent['email'] = $input['email'];
+        $newStudent['telefone'] = $input['telefone'];
+        $newStudent['endereço'] = $input['endereço'];
+        $newStudent['nascimento'] = $input['nascimento'];
+        $newStudent['foto'] = $input['foto'];
+
+        // $input = $this->getRequestInput($this->request);
 
         try{
             $this->studentsModel->insert($newStudent);
@@ -91,18 +105,22 @@ class Students extends ResourceController {
     // Service to update a student (POST)
     public function update($id = null)
     {
+        log_message("debug", "Updating Student");
         try {
 
             $model = $this->studentsModel;
             $model->findStudentById($id);
 
-            $updatedStudent['nome'] = $this->request->getPost('nome');
-            $updatedStudent['sobrenome'] = $this->request->getPost('sobrenome');
-            $updatedStudent['email'] = $this->request->getPost('email');
-            $updatedStudent['telefone'] = $this->request->getPost('telefone');
-            $updatedStudent['endereço'] = $this->request->getPost('endereço');
-            $updatedStudent['nascimento'] = $this->request->getPost('nascimento');
-            $updatedStudent['foto'] = $this->request->getPost('foto');
+            $input = $this->getRequestInput($this->request);
+
+       
+            $updatedStudent['nome'] = $input['nome'];
+            $updatedStudent['sobrenome'] = $input['sobrenome'];
+            $updatedStudent['email'] = $input['email'];
+            $updatedStudent['telefone'] = $input['telefone'];
+            $updatedStudent['endereço'] = $input['endereço'];
+            $updatedStudent['nascimento'] = $input['nascimento'];
+            $updatedStudent['foto'] = $input['foto'];
           
 
             $model->update($id, $updatedStudent);
