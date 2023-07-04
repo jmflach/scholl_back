@@ -4,7 +4,7 @@
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
+header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding, Authorization");
 
 if ($_SERVER['REQUEST_METHOD'] === "OPTIONS") {
     die();
