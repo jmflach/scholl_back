@@ -5,6 +5,8 @@ namespace App\Controllers;
 
 use Exception;
 
+use Helpers\jwtHelper;
+
 
 class Authentication extends BaseController {
 
@@ -17,10 +19,11 @@ class Authentication extends BaseController {
             'email' => 'joaoflach@gmail.com'
         ];
 
+        helper('jwt');
 
         $response = [
             'user' => $user,
-            'token' => '123456789abcdefghi'
+            'token' => generateJWT($user['email'])
         ];
 
         
