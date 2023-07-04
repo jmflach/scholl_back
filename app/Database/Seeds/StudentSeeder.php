@@ -37,5 +37,15 @@ class StudentSeeder extends Seeder
             'nascimento' => "1222-12-15",
             'foto' => "https://img.freepik.com/fotos-gratis/retrato-menina-em-fundo-azul_23-2148356689.jpg?t=st=1688264862~exp=1688265462~hmac=0040bcda8e1f58fb3828a15c943441643a1686b0c6e40e688e92dd3a3c1ea1ca",
         ]);
+
+        $this->db->table('students')->insert([
+            'nome' => "Matilda Padilha",
+            'sobrenome' => "Flach",
+            'email' => "matilda@gmail.com",
+            'telefone' => "46999586412",
+            'endereço' => "Rua pai do afonso",
+            'nascimento' => "1222-12-15",
+            'foto' => "https://cdn2.momjunction.com/wp-content/uploads/2016/01/How-To-Make-A-Homemade-Face-Mask-For-Kids-1.jpg",
+        ]);
     }
 }
