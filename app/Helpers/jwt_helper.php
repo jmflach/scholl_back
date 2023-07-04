@@ -4,24 +4,24 @@ use App\Models\UserModel;
 use Config\Services;
 use Firebase\JWT\JWT;
 
-// function getJWTFromRequest($authenticationHeader): string
-// {
-//     if (is_null($authenticationHeader))
-//     {
-//         throw new Exception('Missing JWT');
-//     }
+function getJWTFromRequest($authenticationHeader): string
+{
+    if (is_null($authenticationHeader))
+    {
+        throw new Exception('Missing JWT');
+    }
 
-//     //JWT is sent from client in the format Bearer XXXXXXXXX
-//     return explode(' ', $authenticationHeader)[1];
-// }
+    //JWT is sent from client in the format Bearer XXXXXXXXX
+    return explode(' ', $authenticationHeader)[1];
+}
 
-// function validateJWTFromRequest(string $encodedToken)
-// {
-//     $key = Services::getSecretKey();
-//     $decodedToken = JWT::decode($encodedToken, $key, ['HS256']);
-//     $userModel = new UserModel();
-//     $userModel->findUserByEmailAddress($decodedToken->email);
-// }
+function validateJWTFromRequest(string $encodedToken)
+{
+    $key = Services::getSecretKey();
+    $decodedToken = JWT::decode($encodedToken, $key, ['HS256']);
+    $userModel = new UserModel();
+    $userModel->findUserByEmailAddress($decodedToken->email);
+}
 
 function generateJWT(string $email)
 {

@@ -39,11 +39,11 @@ class CreateUsers extends Migration
             'created_at datetime default current_timestamp',
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('user');
+        $this->forge->createTable('users');
     }
 
     public function down()
     {
-        $this->forge->dropTable('user');
+        $this->forge->dropTable('users');
     }
 }
