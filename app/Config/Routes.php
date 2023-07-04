@@ -39,6 +39,10 @@ $routes->post('students/add', 'Students::create');
 $routes->post('student/update/(:num)', 'Students::update/$1');
 $routes->delete('student/delete/(:num)', 'Students::destroy/$1');
 
+// Authentication
+
+$routes->get('dummy_auth', 'Authentication::dummyAuth');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
