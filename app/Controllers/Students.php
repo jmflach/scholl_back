@@ -80,6 +80,7 @@ class Students extends BaseController {
         $newStudent['endereço'] = $input['endereço'];
         $newStudent['nascimento'] = $input['nascimento'];
         $newStudent['foto'] = $input['foto'];
+        $newStudent['foto_real'] = $input['foto_real'];
 
         // $input = $this->getRequestInput($this->request);
 
