@@ -72,7 +72,6 @@ class Students extends BaseController {
 
         $input = $this->getRequestInput($this->request);
 
-       
         $newStudent['nome'] = $input['nome'];
         $newStudent['sobrenome'] = $input['sobrenome'];
         $newStudent['email'] = $input['email'];
@@ -80,8 +79,16 @@ class Students extends BaseController {
         $newStudent['endereço'] = $input['endereço'];
         $newStudent['nascimento'] = $input['nascimento'];
         $newStudent['foto'] = $input['foto'];
-        $newStudent['foto_real'] = $input['foto_real'];
 
+        // $file = $this->request->getFile('foto_real');
+
+        // if ($file === null) {
+        //     log_message('error', 'Some variable did not contain a value.');
+        // }
+        // else {
+        //     log_message('error', $file->getName());
+        // }
+        
         // $input = $this->getRequestInput($this->request);
 
         try{

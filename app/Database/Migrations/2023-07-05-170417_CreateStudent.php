@@ -47,7 +47,7 @@ class CreateStudents extends Migration
             ],
             'foto' => [
                 'type' => 'VARCHAR',
-                'constraint' => '512',
+                'constraint' => '1000000',
                 'null' => false,
             ],
             'updated_at' => [
