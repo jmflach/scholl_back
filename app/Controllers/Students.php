@@ -65,11 +65,6 @@ class Students extends BaseController {
         log_message("debug", "Creating new student");
         $response = [];
 
-        // $input = $this->request->getPost();
-        // // log_message("debug", $input);
-        // $input = json_decode($this->request->getBody(), true);
-        // // log_message("debug", $input);
-
         $input = $this->getRequestInput($this->request);
 
         $newStudent['nome'] = $input['nome'];
@@ -79,17 +74,6 @@ class Students extends BaseController {
         $newStudent['endereço'] = $input['endereço'];
         $newStudent['nascimento'] = $input['nascimento'];
         $newStudent['foto'] = $input['foto'];
-
-        // $file = $this->request->getFile('foto_real');
-
-        // if ($file === null) {
-        //     log_message('error', 'Some variable did not contain a value.');
-        // }
-        // else {
-        //     log_message('error', $file->getName());
-        // }
-        
-        // $input = $this->getRequestInput($this->request);
 
         try{
             $this->studentsModel->insert($newStudent);
